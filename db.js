@@ -15,6 +15,15 @@ Bike.belongsTo(Type)
 Bike.hasMany(Order)
 Order.belongsTo(Bike)
 
+async function initData (){
+
+    await Type.sync({ force: false })
+    await Bike.sync({ force: false })
+    await Order.sync({ force: false })
+}
+
+initData()
+
 module.exports = {
     sequelize: sequelize,
     bike: Bike,
